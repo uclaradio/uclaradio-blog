@@ -1,0 +1,23 @@
+{
+  "name": "uclaradio-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uclaradio/uclaradio-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uclaradio/uclaradio-blog/issues"
+  },
+  "homepage": "https://github.com/uclaradio/uclaradio-blog#readme",
+  "dependencies": {
+    "keystone": "^4.0.0",
+    "underscore": "^1.9.1"
+  }
+}
