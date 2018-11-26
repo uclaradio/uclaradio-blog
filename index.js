@@ -8,8 +8,7 @@ keystone.init({
   auth: true,
   views: "templates/views",
   "view engine": "pug",
-  static: ['./server/public/js/',
-    './server/public/img/',],
+  static: ["./server/public/js/", "./server/public/img/"],
   mongo: "mongodb://localhost/keystonereactcms"
 });
 keystone.import("./server/models");

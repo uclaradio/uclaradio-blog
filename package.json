@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node keystone",
+    "start": "node index.js",
     "test": "test",
     "compile": "webpack --config webpack.config.js"
   },
