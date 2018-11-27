@@ -16,7 +16,7 @@ exports = module.exports = function(app) {
 
   app.get("/api/recipe/", keystone.middleware.api, routes.api.index.list);
   // Set up the default app route to  http://localhost:3000/index.html
-  app.get("/index.html", function(req, res) {
+  app.get("/", function(req, res) {
     // Render some simple boilerplate html
     function renderFullPage() {
       // Note the div class name here, we will use that as a hook for our React code
