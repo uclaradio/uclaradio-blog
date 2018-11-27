@@ -1,27 +1,33 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+// We will need to import this from redux to create our store and make use of the thunk
+import { createStore, applyMiddleware } from "redux";
+// Dont forget to import redux thunk
+import thunk from "redux-thunk";
+// Getting our combined reducers
+import reducers from "./reducers/reducers";
+// And our Recipe component
+import RecipeList from "./containers/RecipeList";
 
+// Define our store
+const store = createStore(reducers, applyMiddleware(thunk));
+
+// This will be the entry point of our app
 const App = () => {
-    return (
-        <div>
-            <h1> Ramen Noodles </h1>
-            {/* 
-    This a random image I made, feel free to skip this in your code
-    If you want to add your own image you can add it to the server/public/img folder 
-    */}
-            <img style={{ width: '300px', height: '300px' }} src="ramen.jpg" />
-            <h2>Ingredient List</h2>
-            <ul>
-                <li>First Ingredient</li>
-                <li>Second Ingredient</li>
-                <li>Third Ingredient</li>
-            </ul>
-            <h2> Cooking Instructions </h2>
-            <p> Add cooking instructions here </p>
-        </div>
-    );
+  return (
+    // We will add our components here
+    <div>
+      <RecipeList />
+    </div>
+  );
 };
 
 ReactDOM.render(
-    <App />,
-    document.querySelector('.react-container'));
+  // We need to wrap our app in provider to make use of redux
+  // Passing our store to the provider
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector(".react-container")
+);
