@@ -1,10 +1,4 @@
 var keystone = require("keystone");
-
-/**
- * List Recipe
- */
-
-// Getting our recipe model
 var Recipe = keystone.list("Recipe");
 
 // Creating the API end point
