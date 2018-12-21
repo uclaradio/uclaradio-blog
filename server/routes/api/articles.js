@@ -17,3 +17,13 @@ exports.list = function(req, res) {
     })
     .limit(Number(req.query.limit));
 };
+
+exports.getById = function(req, res) {
+  Article.model.findById(req.params.id, (err, item) => {
+    if (item) {
+      res.json(item);
+    } else {
+      res.status(400).send(err);
+    }
+  });
+};

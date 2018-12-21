@@ -47,12 +47,7 @@ Article.add({
     storage: articleImgStorage,
     mimetype: ".jpeg, .jpg, .gif, .svg"
   },
-  ingredientList: {
-    type: Types.Html,
-    wysiwyg: true,
-    height: 150
-  },
-  cookingInstructions: {
+  content: {
     type: Types.Html,
     wysiwyg: true,
     height: 500
