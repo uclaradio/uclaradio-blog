@@ -1,14 +1,14 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-// Create a new Keystone list called Recipe
-var Recipe = new keystone.List("Recipe", {
+// Create a new Keystone list called Article
+var Article = new keystone.List("Article", {
   autokey: { path: "slug", from: "name", unique: true },
   defaultSort: "-createdAt"
 });
 
-// Adding the option to add an image to our Recipe from
-var recipeImgStorage = new keystone.Storage({
+// Adding the option to add an image to our Article from
+var articleImgStorage = new keystone.Storage({
   adapter: keystone.Storage.Adapters.FS,
   fs: {
     // required; path where the files should be stored
@@ -22,8 +22,8 @@ var recipeImgStorage = new keystone.Storage({
   }
 });
 
-// Finally we are gonna add the fields for our Recipe
-Recipe.add({
+// Finally we are gonna add the fields for our Article
+Article.add({
   name: {
     type: String,
     required: true
@@ -44,7 +44,7 @@ Recipe.add({
   publishedAt: Date,
   image: {
     type: Types.File,
-    storage: recipeImgStorage,
+    storage: articleImgStorage,
     mimetype: ".jpeg, .jpg, .gif, .svg"
   },
   ingredientList: {
@@ -60,5 +60,5 @@ Recipe.add({
 });
 
 // Setting the default order of the columns on the admin tab
-Recipe.defaultColumns = "name, state|20%, author, publishedAt|15%";
-Recipe.register();
+Article.defaultColumns = "name, state|20%, author, publishedAt|15%";
+Article.register();

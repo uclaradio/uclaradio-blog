@@ -4,17 +4,13 @@ var importRoutes = keystone.importer(__dirname);
 // And finally set up the api on a route
 var routes = {
   api: importRoutes("./api")
-  // views: importRoutes("./views")
 };
 
 // Export our app routes
 exports = module.exports = function(app) {
   // Get access to the API route in our app
-  // app.get("/", routes.views.index);
-  // app.get("/add-event", routes.views.addEvent);
-  // app.post("/api/event", routes.api.post);
-
-  app.get("/api/recipe/", keystone.middleware.api, routes.api.index.list);
+  app.get("/api/recipe/", keystone.middleware.api, routes.api.recipes.list);
+  app.get("/api/articles/", keystone.middleware.api, routes.api.articles.list);
   // Set up the default app route to  http://localhost:3000/index.html
   app.get("/", function(req, res) {
     // Render some simple boilerplate html
