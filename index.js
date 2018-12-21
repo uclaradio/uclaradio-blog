@@ -12,5 +12,6 @@ keystone.init({
 });
 
 keystone.import("./server/models");
+keystone.set("port", 3010);
 keystone.set("routes", require("./server/routes"));
 keystone.start();

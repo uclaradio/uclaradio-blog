@@ -9,7 +9,7 @@ class RecipeList extends Component {
     this.renderRecipes = this.renderRecipes.bind(this);
   }
   componentDidMount() {
-    const API_URL = "http://localhost:3000/api/recipe/?list";
+    const API_URL = "http://localhost:3010/api/recipe/?list";
     this.props.fetchRecipe(API_URL);
   }
   renderRecipes() {
