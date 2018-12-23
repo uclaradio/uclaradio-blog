@@ -9,7 +9,6 @@ var routes = {
 // Export our app routes
 exports = module.exports = function(app) {
   // Get access to the API route in our app
-  app.get("/api/recipe/", keystone.middleware.api, routes.api.recipes.list);
   app.get("/api/posts/:id", keystone.middleware.api, routes.api.posts.get);
   app.get("/api/posts/", keystone.middleware.api, routes.api.posts.list);
   app.get("/", function(req, res) {

@@ -1,6 +1,6 @@
 import { LOADING_POSTS } from "../../actions/actions";
 
-export default function loadingRecipes(state = true, action) {
+export default function loadingPosts(state = true, action) {
   switch (action.type) {
     case LOADING_POSTS:
       return action.payload;
