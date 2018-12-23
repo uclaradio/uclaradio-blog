@@ -1,8 +1,8 @@
-import { LOADING_ARTICLES } from "../../actions/actions";
+import { LOADING_POSTS } from "../../actions/actions";
 
 export default function loadingRecipes(state = true, action) {
   switch (action.type) {
-    case LOADING_ARTICLES:
+    case LOADING_POSTS:
       return action.payload;
   }
   return state;

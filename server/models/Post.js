@@ -1,14 +1,14 @@
 var keystone = require("keystone");
 var Types = keystone.Field.Types;
 
-// Create a new Keystone list called Article
-var Article = new keystone.List("Article", {
+// Create a new Keystone list called Post
+var Post = new keystone.List("Post", {
   autokey: { path: "slug", from: "name", unique: true },
   defaultSort: "-createdAt"
 });
 
-// Adding the option to add an image to our Article from
-var articleImgStorage = new keystone.Storage({
+// Adding the option to add an image to our Post from
+var postImgStorage = new keystone.Storage({
   adapter: keystone.Storage.Adapters.FS,
   fs: {
     // required; path where the files should be stored
@@ -22,8 +22,8 @@ var articleImgStorage = new keystone.Storage({
   }
 });
 
-// Finally we are gonna add the fields for our Article
-Article.add({
+// Finally we are gonna add the fields for our Post
+Post.add({
   name: {
     type: String,
     required: true
@@ -44,7 +44,7 @@ Article.add({
   publishedAt: Date,
   image: {
     type: Types.File,
-    storage: articleImgStorage,
+    storage: postImgStorage,
     mimetype: ".jpeg, .jpg, .gif, .svg"
   },
   content: {
@@ -55,5 +55,5 @@ Article.add({
 });
 
 // Setting the default order of the columns on the admin tab
-Article.defaultColumns = "name, state|20%, author, publishedAt|15%";
-Article.register();
+Post.defaultColumns = "name, state|20%, author, publishedAt|15%";
+Post.register();

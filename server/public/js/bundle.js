@@ -90,11 +90,11 @@
 /*!***********************************!*\
   !*** ./client/actions/actions.js ***!
   \***********************************/
-/*! exports provided: LOADING_RECIPES, GET_RECIPES, loadingRecipes, fetchRecipes, recipesFetchData */
+/*! exports provided: LOADING_RECIPES, GET_RECIPES, LOADING_POSTS, GET_POSTS, loadingRecipes, fetchRecipes, recipesFetchData, loadingPosts, fetchPosts, postsFetchData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"LOADING_RECIPES\", function() { return LOADING_RECIPES; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_RECIPES\", function() { return GET_RECIPES; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"loadingRecipes\", function() { return loadingRecipes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchRecipes\", function() { return fetchRecipes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"recipesFetchData\", function() { return recipesFetchData; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n // Exporting our actions\n\nvar LOADING_RECIPES = \"LOADING_RECIPES\";\nvar GET_RECIPES = \"GET_RECIPES\"; // An action to check if the recipes are loaded accepts true or false\n\nfunction loadingRecipes(loading) {\n  return {\n    type: LOADING_RECIPES,\n    payload: loading\n  };\n} // This will get the recipes from the API\n\nfunction fetchRecipes(data) {\n  return {\n    type: GET_RECIPES,\n    payload: data\n  };\n} // This is a redux thunk that will fetch our model data\n\nfunction recipesFetchData(url) {\n  return function (dispatch) {\n    var request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url);\n    request.then(function (response) {\n      dispatch(loadingRecipes(false));\n      dispatch(fetchRecipes(response.data.recipe));\n    });\n  };\n}\n\n//# sourceURL=webpack:///./client/actions/actions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"LOADING_RECIPES\", function() { return LOADING_RECIPES; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_RECIPES\", function() { return GET_RECIPES; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"LOADING_POSTS\", function() { return LOADING_POSTS; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_POSTS\", function() { return GET_POSTS; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"loadingRecipes\", function() { return loadingRecipes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchRecipes\", function() { return fetchRecipes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"recipesFetchData\", function() { return recipesFetchData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"loadingPosts\", function() { return loadingPosts; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchPosts\", function() { return fetchPosts; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"postsFetchData\", function() { return postsFetchData; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n // Exporting our actions\n\nvar LOADING_RECIPES = \"LOADING_RECIPES\";\nvar GET_RECIPES = \"GET_RECIPES\";\nvar LOADING_POSTS = \"LOADING_POSTS\";\nvar GET_POSTS = \"GET_POSTS\"; // An action to check if the recipes are loaded accepts true or false\n\nfunction loadingRecipes(loading) {\n  return {\n    type: LOADING_RECIPES,\n    payload: loading\n  };\n} // This will get the recipes from the API\n\nfunction fetchRecipes(data) {\n  return {\n    type: GET_RECIPES,\n    payload: data\n  };\n} // This is a redux thunk that will fetch our model data\n\nfunction recipesFetchData(url) {\n  return function (dispatch) {\n    var request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url);\n    request.then(function (response) {\n      dispatch(loadingRecipes(false));\n      dispatch(fetchRecipes(response.data.recipe));\n    });\n  };\n}\nfunction loadingPosts(loading) {\n  return {\n    type: LOADING_POSTS,\n    payload: loading\n  };\n}\nfunction fetchPosts(data) {\n  return {\n    type: GET_POSTS,\n    payload: data\n  };\n}\nfunction postsFetchData(url) {\n  return function (dispatch) {\n    var request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url);\n    request.then(function (response) {\n      dispatch(loadingPosts(false));\n      dispatch(fetchPosts(response.data.post));\n    });\n  };\n}\n\n//# sourceURL=webpack:///./client/actions/actions.js?");
 
 /***/ }),
 
@@ -122,6 +122,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./client/reducers/postActions/getPosts.js":
+/*!*************************************************!*\
+  !*** ./client/reducers/postActions/getPosts.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return getPosts; });\n/* harmony import */ var _actions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/actions */ \"./client/actions/actions.js\");\n\nfunction getPosts() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_actions__WEBPACK_IMPORTED_MODULE_0__[\"GET_POSTS\"]:\n      return action.payload;\n  }\n\n  return state;\n}\n\n//# sourceURL=webpack:///./client/reducers/postActions/getPosts.js?");
+
+/***/ }),
+
+/***/ "./client/reducers/postActions/loadingPosts.js":
+/*!*****************************************************!*\
+  !*** ./client/reducers/postActions/loadingPosts.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return loadingRecipes; });\n/* harmony import */ var _actions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/actions */ \"./client/actions/actions.js\");\n\nfunction loadingRecipes() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_actions__WEBPACK_IMPORTED_MODULE_0__[\"LOADING_POSTS\"]:\n      return action.payload;\n  }\n\n  return state;\n}\n\n//# sourceURL=webpack:///./client/reducers/postActions/loadingPosts.js?");
+
+/***/ }),
+
 /***/ "./client/reducers/recipe_actions/get_recipes.js":
 /*!*******************************************************!*\
   !*** ./client/reducers/recipe_actions/get_recipes.js ***!
@@ -130,7 +154,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return getRecipe; });\n/* harmony import */ var _actions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/actions */ \"./client/actions/actions.js\");\n\nfunction getRecipe() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_actions__WEBPACK_IMPORTED_MODULE_0__[\"GET_RECIPES\"]:\n      return action.payload;\n  }\n\n  return state;\n}\n\n//# sourceURL=webpack:///./client/reducers/recipe_actions/get_recipes.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return getRecipes; });\n/* harmony import */ var _actions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/actions */ \"./client/actions/actions.js\");\n\nfunction getRecipes() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_actions__WEBPACK_IMPORTED_MODULE_0__[\"GET_RECIPES\"]:\n      return action.payload;\n  }\n\n  return state;\n}\n\n//# sourceURL=webpack:///./client/reducers/recipe_actions/get_recipes.js?");
 
 /***/ }),
 
@@ -154,7 +178,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _recipe_actions_get_recipes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recipe_actions/get_recipes.js */ \"./client/reducers/recipe_actions/get_recipes.js\");\n/* harmony import */ var _recipe_actions_loading_recipes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipe_actions/loading_recipes.js */ \"./client/reducers/recipe_actions/loading_recipes.js\");\n\n\n\nvar reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  recipes: _recipe_actions_get_recipes_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  loadRecipes: _recipe_actions_loading_recipes_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (reducers);\n\n//# sourceURL=webpack:///./client/reducers/reducers.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _recipe_actions_get_recipes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recipe_actions/get_recipes.js */ \"./client/reducers/recipe_actions/get_recipes.js\");\n/* harmony import */ var _recipe_actions_loading_recipes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipe_actions/loading_recipes.js */ \"./client/reducers/recipe_actions/loading_recipes.js\");\n/* harmony import */ var _postActions_getPosts_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./postActions/getPosts.js */ \"./client/reducers/postActions/getPosts.js\");\n/* harmony import */ var _postActions_loadingPosts_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./postActions/loadingPosts.js */ \"./client/reducers/postActions/loadingPosts.js\");\n\n\n\n\n\nvar reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  recipes: _recipe_actions_get_recipes_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  loadRecipes: _recipe_actions_loading_recipes_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  posts: _postActions_getPosts_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n  loadPosts: _postActions_loadingPosts_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (reducers);\n\n//# sourceURL=webpack:///./client/reducers/reducers.js?");
 
 /***/ }),
 

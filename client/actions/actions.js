@@ -3,8 +3,8 @@ import axios from "axios";
 // Exporting our actions
 export const LOADING_RECIPES = "LOADING_RECIPES";
 export const GET_RECIPES = "GET_RECIPES";
-export const LOADING_ARTICLES = "LOADING_ARTICLES";
-export const GET_ARTICLES = "GET_ARTICLES";
+export const LOADING_POSTS = "LOADING_POSTS";
+export const GET_POSTS = "GET_POSTS";
 
 // An action to check if the recipes are loaded accepts true or false
 export function loadingRecipes(loading) {
@@ -33,26 +33,26 @@ export function recipesFetchData(url) {
   };
 }
 
-export function loadingArticles(loading) {
+export function loadingPosts(loading) {
   return {
-    type: LOADING_ARTICLES,
+    type: LOADING_POSTS,
     payload: loading
   };
 }
 
-export function fetchArticles(data) {
+export function fetchPosts(data) {
   return {
-    type: GET_ARTICLES,
+    type: GET_POSTS,
     payload: data
   };
 }
 
-export function articlesFetchData(url) {
+export function postsFetchData(url) {
   return dispatch => {
     const request = axios.get(url);
     request.then(response => {
-      dispatch(loadingArticles(false));
-      dispatch(fetchArticles(response.data.article));
+      dispatch(loadingPosts(false));
+      dispatch(fetchPosts(response.data.post));
     });
   };
 }
