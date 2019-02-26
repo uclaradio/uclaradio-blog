@@ -44,33 +44,23 @@ Post.add({
   publishedAt: Date,
   img1: {
     label: "Image 1",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    type: Types.CloudinaryImage
   },
   img2: {
     label: "Image 2",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    type: Types.CloudinaryImage
   },
   img3: {
     label: "Image 3",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    type: Types.CloudinaryImage
   },
   img4: {
     label: "Image 4",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    type: Types.CloudinaryImage
   },
   img5: {
     label: "Image 5",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    type: Types.CloudinaryImage
   },
   content: {
     type: Types.Html,
