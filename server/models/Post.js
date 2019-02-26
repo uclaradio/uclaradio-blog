@@ -42,15 +42,44 @@ Post.add({
     default: Date.now
   },
   publishedAt: Date,
-  image: {
+  img1: {
+    label: "Image 1",
     type: Types.File,
     storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg"
+    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+  },
+  img2: {
+    label: "Image 2",
+    type: Types.File,
+    storage: postImgStorage,
+    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+  },
+  img3: {
+    label: "Image 3",
+    type: Types.File,
+    storage: postImgStorage,
+    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+  },
+  img4: {
+    label: "Image 4",
+    type: Types.File,
+    storage: postImgStorage,
+    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+  },
+  img5: {
+    label: "Image 5",
+    type: Types.File,
+    storage: postImgStorage,
+    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
   },
   content: {
     type: Types.Html,
     wysiwyg: true,
     height: 500
+  },
+  tags: {
+    type: Types.TextArray,
+    separator: ","
   }
 });
 

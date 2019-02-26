@@ -1,4 +1,5 @@
 node_modules/
 package-lock.json
 config.json
-server/public/img/
+server/public/img
+.*swp
