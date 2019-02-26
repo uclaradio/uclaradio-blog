@@ -7,8 +7,7 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 // Getting our combined reducers
 import reducers from "./reducers/reducers";
-// And our Recipe component
-import RecipeList from "./containers/RecipeList";
+import Main from "./containers/Main";
 
 // Define our store
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -18,7 +17,7 @@ const App = () => {
   return (
     // We will add our components here
     <div>
-      <RecipeList />
+      <Main />
     </div>
   );
 };
