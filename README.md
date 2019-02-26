@@ -7,6 +7,11 @@
   - Run mongo: `mongo`
 - In a second terminal
   - Run keystone server: `npm start`
+  - You'll know you've succeeded when you see:
+  ```
+  KeystoneJS v4.0.0 started:
+  uclaradio-blog is ready on http://0.0.0.0:3010
+  ```
 
 ### Access Keystone
 
@@ -19,6 +24,19 @@
   - [http://localhost:3010/api/posts]()
 - `GET` post by ID
   - [http://localhost:3010/api/posts/:id]()
+
+### Common Errors in Setup
+
+- "Cannot find module './config.json'"
+  - You don't have the `config.json` for authentication. Message the codeowners for it.
+- "failed to connect to server [ds141924.mlab.com:41924] on first connect [MongoError: connection 0 to ds141924.mlab.com:41924 timed out]"
+  - You're probably on lame wifi. Switch to a good one like `eduroam`.
+- "Another mongod instance is already running on the /data/db directory, terminating"
+  - You can only have (and need) 1 mongod instance running locally. Closing all your browsers won't close the instance.
+  - Find the pid of the instance:
+    `ps -ax | grep mongod`
+  - Kill the pid of the mongod instance, which is listed in the first column
+    `kill <pid>`
 
 ### Helpful Resources
 
