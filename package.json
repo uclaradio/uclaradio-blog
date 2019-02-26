@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "test",
-    "compile": "webpack --config webpack.config.js"
+    "compile": "webpack --config webpack.config.js",
+    "restart": "npm run compile && npm start"
   },
   "author": "",
   "license": "ISC",
