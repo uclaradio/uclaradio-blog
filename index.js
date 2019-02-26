@@ -12,6 +12,7 @@ if (keystone.get("env") == "production") {
     // mongo: process.env.MONGODB_URI,
     "cloudinary config": process.env.CLOUDINARY_URL
   });
+  keystone.set("port", process.env.PORT);
 } else {
   var config = require("./config.json");
   keystone.init({
@@ -26,6 +27,7 @@ if (keystone.get("env") == "production") {
       config.CLOUD_API_SECRET
     }@${config.CLOUD_NAME}`
   });
+  keystone.set("port", 3010);
 }
 
 keystone.import("./server/models");
