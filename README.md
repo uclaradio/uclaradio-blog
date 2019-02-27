@@ -34,7 +34,7 @@ We are currently deploying to Heroku with git.
     - `git checkout master`
   - Push your app to Heroku
     - `git push heroku master`
-  - The production version is served at [https://uclaradio-blog.herokuapp.com/](https://uclaradio-blog.herokuapp.com/).
+  - The production version is served at [uclaradio-blog.herokuapp.com/](https://uclaradio-blog.herokuapp.com/).
 
 ### Access Keystone
 
