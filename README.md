@@ -1,10 +1,11 @@
 # uclaradio-blog
 
-### Setup Environment
+Deployed at [https://uclaradio-blog.herokuapp.com/](https://uclaradio-blog.herokuapp.com/)
 
-- Compile the jsx files: `npm run compile`
+### Setup Dev Environment
+
 - In one terminal
-  - Run mongo: `mongo`
+  - Run mongod: `mongod`
 - In a second terminal
   - Run keystone server: `npm start`
   - You'll know you've succeeded when you see:
@@ -12,18 +13,40 @@
   KeystoneJS v4.0.0 started:
   uclaradio-blog is ready on http://0.0.0.0:3010
   ```
+- The dev version is served at [localhost:3010](http://localhost:3010/).
+
+### Deployment
+
+We are currently deploying to Heroku with git.
+
+- Setting up Heroku for the first time:
+
+  - Download the [Heroku CLI](https://devcenter.heroku.com/categories/command-line).
+  - Login to Heroku from your terminal.
+    - `heroku login`
+    - You'll be prompted to login with your heroku user credentials. Message the codeowners for access.
+  - Add Heroku's remote git repository. Now, local repository will have pushing access to both this github repo and to heroku's git repo.
+    - `heroku git:remote -a uclaradio-blog`
+
+- Deploying the app to Heroku:
+
+  - Ensure that you're on the master branch of this github.
+    - `git checkout master`
+  - Push your app to Heroku
+    - `git push heroku master`
+  - The production version is served at [https://uclaradio-blog.herokuapp.com/](https://uclaradio-blog.herokuapp.com/).
 
 ### Access Keystone
 
-- Navigate to [localhost:3010/keystone]()
+- Navigate to the Admin UI [/keystone]()
 - Login with user credentials in `updates/0.0.1-admin.js`
 
 ### Use API
 
 - `GET` all posts
-  - [http://localhost:3010/api/posts]()
+  - [/api/posts]()
 - `GET` post by ID
-  - [http://localhost:3010/api/posts/:id]()
+  - [/api/posts/:id]()
 
 ### Common Errors in Setup
 
@@ -33,9 +56,9 @@
   - You're probably on lame wifi. Switch to a good one like `eduroam`.
 - "Another mongod instance is already running on the /data/db directory, terminating"
   - You can only have (and need) 1 mongod instance running locally. Closing all your browsers won't close the instance.
-  - Find the pid of the instance:
+  - Find the pid of the instance.
     `ps -ax | grep mongod`
-  - Kill the pid of the mongod instance, which is listed in the first column
+  - Kill the pid of the mongod instance, which is listed in the first column.
     `kill <pid>`
 
 ### Helpful Resources

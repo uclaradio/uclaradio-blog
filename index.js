@@ -2,7 +2,6 @@ var keystone = require("keystone");
 
 if (keystone.get("env") == "production") {
   console.log("PRODUCTION");
-  // may need to update cloudinary
   keystone.init({
     "cookie secret": "secure string goes here",
     name: "uclaradio-blog",
@@ -23,7 +22,9 @@ if (keystone.get("env") == "production") {
     "auto update": true,
     auth: true,
     static: ["./server/public/js/", "./server/public/img/"],
-    mongo: "mongodb://localhost/keystonereactcms",
+    mongo: `mongodb://${config.DB_USER}:${
+      config.DB_PASSWORD
+    }@ds141924.mlab.com:41924/uclaradio-blog`,
     "cloudinary config": `cloudinary://${config.CLOUD_API_KEY}:${
       config.CLOUD_API_SECRET
     }@${config.CLOUD_NAME}`
