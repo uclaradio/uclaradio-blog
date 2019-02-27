@@ -34,33 +34,45 @@ Post.add({
     default: "draft"
   },
   author: {
-    type: Types.Relationship,
-    ref: "User"
+    type: String
+  },
+  photographer: {
+    type: String
   },
   createdAt: {
     type: Date,
     default: Date.now
   },
   publishedAt: Date,
+  coverPhoto: {
+    label: "Cover Photo",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
+  },
   img1: {
     label: "Image 1",
-    type: Types.CloudinaryImage
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img2: {
     label: "Image 2",
-    type: Types.CloudinaryImage
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img3: {
     label: "Image 3",
-    type: Types.CloudinaryImage
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img4: {
     label: "Image 4",
-    type: Types.CloudinaryImage
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img5: {
     label: "Image 5",
-    type: Types.CloudinaryImage
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   content: {
     type: Types.Html,
