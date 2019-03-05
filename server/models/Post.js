@@ -40,7 +40,10 @@ Post.add({
     type: String
   },
   category: {
-    type: String
+    type: Types.Select,
+    options:
+      "Show Review, Music Review, Interview, Sports, News, Entertainment, Comedy, Featured",
+    default: "Show Review"
   },
   createdAt: {
     type: Date,
