@@ -39,6 +39,9 @@ Post.add({
   photographer: {
     type: String
   },
+  type: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -78,10 +81,6 @@ Post.add({
     type: Types.Html,
     wysiwyg: true,
     height: 500
-  },
-  tags: {
-    type: Types.TextArray,
-    separator: ","
   }
 });
 
