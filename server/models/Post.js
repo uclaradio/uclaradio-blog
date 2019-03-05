@@ -39,7 +39,7 @@ Post.add({
   photographer: {
     type: String
   },
-  type: {
+  category: {
     type: String
   },
   createdAt: {
