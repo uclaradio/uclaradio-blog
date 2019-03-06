@@ -42,7 +42,7 @@ Post.add({
   category: {
     type: Types.Select,
     options:
-      "None, Show Review, Music Review, Interview, Sports, News, Entertainment, Comedy, Featured",
+      "None, Show Review, Music Review, Interview, Sports, News, Entertainment, Comedy, UCLA Radio",
     default: "None"
   },
   createdAt: {
