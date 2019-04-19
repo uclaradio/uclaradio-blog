@@ -34,8 +34,16 @@ Post.add({
     default: "draft"
   },
   author: {
-    type: Types.Relationship,
-    ref: "User"
+    type: String
+  },
+  photographer: {
+    type: String
+  },
+  category: {
+    type: Types.Select,
+    options:
+      "None, Show Review, Music Review, Interview, Sports, News, Entertainment, Comedy, UCLA Radio",
+    default: "None"
   },
   createdAt: {
     type: Date,
@@ -43,43 +51,34 @@ Post.add({
   },
   publishedAt: Date,
   img1: {
-    label: "Image 1",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    label: "Image1",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img2: {
-    label: "Image 2",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    label: "Image2",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img3: {
-    label: "Image 3",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    label: "Image3",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img4: {
-    label: "Image 4",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    label: "Image4",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   img5: {
-    label: "Image 5",
-    type: Types.File,
-    storage: postImgStorage,
-    mimetype: ".jpeg, .jpg, .gif, .svg, .png"
+    label: "Image5",
+    type: Types.CloudinaryImage,
+    autoCleanup: true
   },
   content: {
     type: Types.Html,
     wysiwyg: true,
     height: 500
-  },
-  tags: {
-    type: Types.TextArray,
-    separator: ","
   }
 });
 
