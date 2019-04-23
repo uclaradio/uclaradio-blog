@@ -39,6 +39,10 @@ Post.add({
   photographer: {
     type: String
   },
+  transcriber: {
+    type: String,
+    required: false
+  },
   category: {
     type: Types.Select,
     options:
