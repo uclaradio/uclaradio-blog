@@ -50,29 +50,9 @@ Post.add({
     default: Date.now
   },
   publishedAt: Date,
-  img1: {
-    label: "Image1",
-    type: Types.CloudinaryImage,
-    autoCleanup: true
-  },
-  img2: {
-    label: "Image2",
-    type: Types.CloudinaryImage,
-    autoCleanup: true
-  },
-  img3: {
-    label: "Image3",
-    type: Types.CloudinaryImage,
-    autoCleanup: true
-  },
-  img4: {
-    label: "Image4",
-    type: Types.CloudinaryImage,
-    autoCleanup: true
-  },
-  img5: {
-    label: "Image5",
-    type: Types.CloudinaryImage,
+  imgs: {
+    label: "Images",
+    type: Types.CloudinaryImages,
     autoCleanup: true
   },
   content: {
