@@ -13,7 +13,7 @@ exports = module.exports = function(app) {
   app.get("/api/posts/", keystone.middleware.api, routes.api.posts.list);
   app.get("/", function(req, res) {
     res.redirect("/keystone");
-  app.get("/api/images/:id", keystone.middleware.api, routes.api.images.get);
-  app.get("/api/images/", keystone.middleware.api, routes.api.images.list);
+  app.get("/api/photos/:id", keystone.middleware.api, routes.api.photos.get);
+  app.get("/api/photos/", keystone.middleware.api, routes.api.photos.list);
   });
 };
