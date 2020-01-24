@@ -11,8 +11,8 @@ var Post = new keystone.List("Post", {
 var postImgStorage = new keystone.Storage({
   adapter: require('keystone-storage-adapter-s3'),
   s3: {
-    key: require('../../passwords').s3.id, // required; defaults to process.env.S3_KEY
-    secret: require('../../passwords').s3.secret, // required; defaults to process.env.S3_SECRET
+    key: process.env.S3_ID, // required; defaults to process.env.S3_KEY
+    secret: process.env.S3_SECRET, // required; defaults to process.env.S3_SECRET
     bucket: 'radiophotobucket' // required; defaults to process.env.S3_BUCKET
 
   },
