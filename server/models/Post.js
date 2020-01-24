@@ -9,17 +9,19 @@ var Post = new keystone.List("Post", {
 
 // Adding the option to add an image to our Post from
 var postImgStorage = new keystone.Storage({
-  adapter: keystone.Storage.Adapters.FS,
-  fs: {
-    // required; path where the files should be stored
-    path: keystone.expandPath("server/public/img"),
-    generateFilename: function(file, index) {
-      return file.originalname;
-    },
-    whenExists: "error",
-    // path where files will be served
-    publicPath: "/public/img"
-  }
+  adapter: require('keystone-storage-adapter-s3'),
+  s3: {
+    key: 'AKIAIWAOTK32HA5CIJMA', // required; defaults to process.env.S3_KEY
+    secret: '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', // required; defaults to process.env.S3_SECRET
+    bucket: 'radiophotobucket' // required; defaults to process.env.S3_BUCKET
+
+  },
+  schema: {
+    bucket: true, // optional; store the bucket the file was uploaded to in your db
+    etag: true, // optional; store the etag for the resource
+    path: true, // optional; store the path of the file in your db
+    url: true, // optional; generate & store a public URL
+  },
 });
 
 // Finally we are gonna add the fields for our Post
@@ -52,27 +54,32 @@ Post.add({
   publishedAt: Date,
   img1: {
     label: "Image1",
-    type: Types.CloudinaryImage,
+    type: Types.File,
+    storage: postImgStorage,
     autoCleanup: true
   },
   img2: {
     label: "Image2",
-    type: Types.CloudinaryImage,
+    type: Types.File,
+    storage: postImgStorage,
     autoCleanup: true
   },
   img3: {
     label: "Image3",
-    type: Types.CloudinaryImage,
+    type: Types.File,
+    storage: postImgStorage,
     autoCleanup: true
   },
   img4: {
     label: "Image4",
-    type: Types.CloudinaryImage,
+    type: Types.File,
+    storage: postImgStorage,
     autoCleanup: true
   },
   img5: {
     label: "Image5",
-    type: Types.CloudinaryImage,
+    type: Types.File,
+    storage: postImgStorage,
     autoCleanup: true
   },
   content: {
