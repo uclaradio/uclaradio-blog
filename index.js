@@ -34,5 +34,8 @@ if (keystone.get("env") == "production") {
 keystone.import("./server/models");
 keystone.set("port", process.env.PORT || 3010);
 keystone.set("routes", require("./server/routes"));
+keystone.set('cors allow origin', true);
+keystone.set('cors allow methods', true);
+keystone.set('cors allow headers', true);
 
 keystone.start();
